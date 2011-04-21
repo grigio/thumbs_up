@@ -32,7 +32,7 @@ module ThumbsUp #:nodoc:
       #       user.vote_count()      # All votes
 
       def vote_count(for_or_against = :all)
-        v = Vote.where(:voter_id => id).where(:voter_type => self.class.name)
+        v = Vote.where(:voter_id => id).where(:voter_type => self.class.base_class.name)
         v = case for_or_against
           when :all   then v
           when :up    then v.where(:vote => true)
@@ -99,7 +99,7 @@ module ThumbsUp #:nodoc:
               :voter_type => self.class.name,
               :vote => direction == :up ? true : false,
               :voteable_id => voteable.id,
-              :voteable_type => voteable.class.name
+              :voteable_type => voteable.class.base_class.name
             ).count
       end
 
