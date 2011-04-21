@@ -120,6 +120,14 @@ module ThumbsUp
     end
 
     module InstanceMethods
+      
+      def percent_for
+        votes_for.to_f / votes_count.to_f * 100
+      end
+      
+      def percent_against
+        votes_against.to_f / votes_count.to_f * 100
+      end
 
       def votes_for
         Vote.where(:voteable_id => id, :voteable_type => self.class.base_class.name, :vote => true).count
