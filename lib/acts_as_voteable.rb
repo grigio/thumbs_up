@@ -20,7 +20,7 @@ module ThumbsUp
       # First the votes table is joined twiced so that the Vote_Total can be calculated for every ID
       # Then this table is joined against the specific table passed to this function to allow for
       # ranking of the items within that table based on the difference between up and down votes.
-            # Options:
+      # Options:
       #  :start_at    - Restrict the votes to those created after a certain time
       #  :end_at      - Restrict the votes to those created before a certain time
       #  :conditions  - A piece of SQL conditions to add to the query
@@ -119,6 +119,13 @@ module ThumbsUp
     end
 
     module InstanceMethods
+
+      def rank
+        self.class.rank_tally.each_with_index do |v,i| 
+          return i+1 if v.id == self.id
+        end
+        0
+      end
 
       def percent_for
         votes_for.to_f / votes_count.to_f * 100
