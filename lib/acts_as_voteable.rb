@@ -121,6 +121,7 @@ module ThumbsUp
     module InstanceMethods
 
       def rank
+        # TODO: seems pretty inefficent to do it this way. Need to come up with a better solution in the long run.s
         self.class.rank_tally.each_with_index do |v,i| 
           return i+1 if v.id == self.id
         end
@@ -128,11 +129,19 @@ module ThumbsUp
       end
 
       def percent_for
-        votes_for.to_f / votes_count.to_f * 100
+        if votes_count > 0
+          votes_for.to_f / votes_count.to_f * 100
+        else
+          0
+        end
       end
 
       def percent_against
-        votes_against.to_f / votes_count.to_f * 100
+        if votes_count > 0
+          votes_against.to_f / votes_count.to_f * 100
+        else
+          0
+        end
       end
 
       def votes_for
