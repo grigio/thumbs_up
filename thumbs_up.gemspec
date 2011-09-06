@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{thumbs_up}
-  s.version = "0.4.1.4"
+  s.version = "0.4.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Brady Bouchard", "Peter Jackson", "Cosmin Radoi", "Bence Nagy", "Rob Maddox", "Wojciech Wnetrzak"]
-  s.date = %q{2011-06-10}
+  s.authors = [%q{Brady Bouchard}, %q{Peter Jackson}, %q{Cosmin Radoi}, %q{Bence Nagy}, %q{Rob Maddox}, %q{Wojciech Wnetrzak}]
+  s.date = %q{2011-09-06}
   s.description = %q{ThumbsUp provides dead-simple voting capabilities to ActiveRecord models with karma calculation, a la stackoverflow.com.}
   s.email = %q{brady@ldawn.com}
   s.extra_rdoc_files = [
@@ -30,38 +30,34 @@ Gem::Specification.new do |s|
     "lib/has_karma.rb",
     "lib/thumbs_up.rb",
     "rails/init.rb",
-    "test/helper.rb",
+    "test/test_helper.rb",
     "test/test_thumbs_up.rb",
     "thumbs_up.gemspec"
   ]
   s.homepage = %q{http://github.com/brady8/thumbs_up}
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.9}
   s.summary = %q{Voting for ActiveRecord with multiple vote sources and karma calculation.}
-  s.test_files = [
-    "test/helper.rb",
-    "test/test_thumbs_up.rb"
-  ]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<activerecord>, [">= 3.0.3"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_runtime_dependency(%q<activerecord>, [">= 0"])
+      s.add_development_dependency(%q<bundler>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<simplecov>, [">= 0"])
     else
-      s.add_dependency(%q<activerecord>, [">= 3.0.3"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<activerecord>, [">= 0"])
+      s.add_dependency(%q<bundler>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
+      s.add_dependency(%q<simplecov>, [">= 0"])
     end
   else
-    s.add_dependency(%q<activerecord>, [">= 3.0.3"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
-    s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<activerecord>, [">= 0"])
+    s.add_dependency(%q<bundler>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
+    s.add_dependency(%q<simplecov>, [">= 0"])
   end
 end
 
